@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_01_28_093543) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_cocktails_on_name"
+    t.index ["name"], name: "index_cocktails_on_name", unique: true
   end
 
   create_table "ingredients", force: :cascade do |t|

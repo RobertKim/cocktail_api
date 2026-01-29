@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :cocktail_ingredient do
-    cocktail { nil }
-    ingredient { nil }
-    measurement { "MyString" }
+    association :cocktail
+    association :ingredient
+    measurement { "1 oz" }
   end
 end

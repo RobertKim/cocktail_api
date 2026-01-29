@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :cocktail do
-    name { "MyString" }
-    category { "MyString" }
-    container { "MyString" }
-    instructions { "MyText" }
-    image_url { "MyString" }
+    sequence(:name) { |n| "Cocktail #{n}" }
+    category { "Ordinary Drink" }
+    container { "Highball glass" }
+    instructions { "Mix ingredients and serve" }
+    image_url { "https://example.com/image.jpg" }
   end
 end

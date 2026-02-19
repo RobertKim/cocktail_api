@@ -28,7 +28,6 @@ class CocktailImportService
   end
 
   def import_cocktail(cocktail_data)
-    # In production, I might consider using batch transactions (e.g., 100 cocktails per transaction)
     ActiveRecord::Base.transaction do
       cocktail = Cocktail.find_or_create_by(name: cocktail_data['name']) do |c|
         c.category = cocktail_data['category']
@@ -44,7 +43,6 @@ class CocktailImportService
         image_url: cocktail_data['image']
       )
 
-      # In production, for large datasets, a diff-based approach would reduce database writes
       cocktail.cocktail_ingredients.destroy_all
       cocktail_data['ingredients']&.each do |ingredient_data|
         import_cocktail_ingredient(cocktail, ingredient_data)
